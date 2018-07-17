@@ -1003,7 +1003,7 @@ class Taglist extends Vdh_Flickr {
 
 
 class Flickr {
-	var $xmlurl = 'http://www.flickr.com/services/rest/?method=';
+	var $xmlurl = 'https://api.flickr.com/services/rest/?method=';
 	var $xml;
 
 	public function Flickr($method) {

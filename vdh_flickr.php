@@ -599,14 +599,14 @@ class Thumbnails extends Vdh_Flickr {
 			$html .= '</a>';
 		}
 		if($this->open == 'lightbox') {
-			$html = '<a href="';
+			$html = '<li><a class="box col2 fancybox" href="';
 			$html .= $this->getPhotoUrl($this->photo, $this->img_size);
 			$set = $this->thumbnails_title();
 			$set = trim($set);
 			$html .= '" rel="lightbox['.$set.']"';
 			$html .= ' title="'.$title.'">';
 			$html .= $img_url;
-			$html .= '</a>';
+			$html .= '</a></li>';
 		}
 		return $html;
 	}

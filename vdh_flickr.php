@@ -17,7 +17,7 @@ $plugin['name'] = 'vdh_flickr';
 // 1 = Plugin help is in raw HTML.  Not recommended.
 # $plugin['allow_html_help'] = 1;
 
-$plugin['version'] = '0.8.12';
+$plugin['version'] = '0.8.13';
 $plugin['author'] = 'Ralph von der Heyden';
 $plugin['author_uri'] = 'http://www.rvdh.net/vdh_flickr';
 $plugin['description'] = 'Shows your flickr.com pictures in TextPattern.';
@@ -94,7 +94,7 @@ global $clean_urls;
 //$clean_urls = 1;
 
 global $nsid;
-// $nsid = '12345678@N00';
+//$nsid = '12345678@N00';
 
 
 class Vdh_Flickr {

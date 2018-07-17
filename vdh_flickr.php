@@ -159,7 +159,7 @@ global $nsid;
 class Vdh_Flickr {
 	var $api_key, $email, $nsid, $password, $userdata, $xml, $form, $use_articleurl;
 
-	public function Vdh_Flickr($params) {
+	public function __construct($params) {
 		$this->api_key = 'c34e40dc707f9bc52736dba56811893f';
 		if(isset($params['error_message'])) {
 			$GLOBALS['text']['error_message'] = $params['error_message'];
@@ -186,6 +186,10 @@ class Vdh_Flickr {
 		}
 		if (isset($this->email)) $this->userdata .= '&email=' . $this->email;
 	}
+
+  public function Vdh_Flickr($params) {
+    self::__construct($params);
+  }
 
 	function getNsid() {
 		$method = 'flickr.people.findByEmail&api_key=' . $this->api_key . '&find_email=' . $this->email;
@@ -254,7 +258,7 @@ class Gallery extends Vdh_Flickr {
 	var $exceptions = array();
 	var $sets = array();
 
-	public function Gallery($params) {
+	public function __construct($params) {
 		$this->Vdh_Flickr($params);
 		if (isset($params['except'])) $this->exceptions = explode(",", $params['except']);
 		(isset($params['set_preview_size']))?
@@ -301,6 +305,10 @@ class Gallery extends Vdh_Flickr {
 			</div>';
 		}
 	}
+
+  public function Gallery($params) {
+    self::__construct($params);
+  }
 
 	function getSets($params) {
 		$method = 'flickr.photosets.getList' . $this->userdata;
@@ -404,7 +412,7 @@ class Thumbnails extends Vdh_Flickr {
 	var $page, $thumbs_per_page, $start, $end, $lastpage, $previous_page, $next_page;
 	var $photos = array(), $tags = array();
 
-	public function Thumbnails($params) {
+	public function __construct($params) {
 		$this->Vdh_Flickr($params);
 		$this->params = $params;
 		(isset($params['thumbnail_size']))?
@@ -484,6 +492,10 @@ class Thumbnails extends Vdh_Flickr {
 			}
 		}
 	}
+
+  public function Thumbnails($params) {
+    self::__construct($params);
+  }
 
 	function getPhotos() {
 		if ($this->use_art_id_as_tag == 1) {
@@ -789,7 +801,7 @@ class Picture extends Vdh_Flickr {
 	var $date_posted, $date_taken;
 	var $previous = array(), $next = array(), $tags = array(), $raw_tags = array(), $tag_ids = array();
 
-	public function Picture($params) {
+	public function __construct($params) {
 		$this->Vdh_Flickr($params);
 		(isset($params['img_size']))?
 		$this->img_size = $params['img_size']:
@@ -851,6 +863,10 @@ class Picture extends Vdh_Flickr {
 			</div></div><div style="clear:both;"></div>';
 		}
 	}
+
+  public function Picture($params) {
+    self::__construct($params);
+  }
 
 	function getContext() {
 		if (isset($this->set)) {
@@ -1023,9 +1039,13 @@ class Picture extends Vdh_Flickr {
 class Taglist extends Vdh_Flickr {
 	var $xml, $taglist, $count, $source_tag;
 
-	public function Taglist($params) {
+	public function __construct($params) {
 		$this->Vdh_Flickr($params);
 	}
+
+  public function Taglist($params) {
+    self::__construct($params);
+  }
 
 	function list_all($params) {
 		$method = 'flickr.tags.getListUser' . $this->userdata;
@@ -1065,7 +1085,7 @@ class Flickr {
 	var $xmlurl = 'https://api.flickr.com/services/rest/?method=';
 	var $xml;
 
-	public function Flickr($method) {
+	public function __construct($method) {
 		//$time_start = microtime(true);
 		$this->xmlurl .= $method;
 		if(isset($GLOBALS['use_php4'])) {
@@ -1097,6 +1117,10 @@ class Flickr {
 		}
 		//echo n,comment(('runtime for ' . $method. ': ' . (microtime(true) - $time_start) . "<br />\n"));
 	}
+
+  public function Flickr($method) {
+    self::__construct($method);
+  }
 
 	function isValid() {
 		if(isset($this->xml)) {

@@ -461,7 +461,7 @@ class Thumbnails extends Vdh_Flickr {
 			<txp:vdh_flickr_thumbnails_pages_last>last &raquo;</txp:vdh_flickr_thumbnails_pages_last>
 			</p>
 			Go to page number:
-			<txp:vdh_flickr_thumbnails_pages_list wraptag="ul" break="li" class ="thumbs_pages" />
+			<txp:vdh_flickr_thumbnails_pages_list wraptag="ul" break="li" class="thumbs_pages" />
 			</txp:vdh_flickr_thumbnails_if_multiple_pages>
 			<div style="clear:both;"></div>';
 		}

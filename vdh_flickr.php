@@ -551,17 +551,17 @@ class Thumbnails extends Vdh_Flickr {
 			else {
 				$html .= '&amp;tag_mode=any&amp;tags=' . urlencode($this->tags);
 			}
-			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=500,height=500,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
+			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=800,height=600,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
 			$html .= 'return false;">';
 		}
 		if(isset($this->set)) {
 			$html = '<a href="http://www.flickr.com/slideShow/index.gne?nsid='.urlencode($this->nsid).'&amp;set_id='.$this->set;
-			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=500,height=500,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
+			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=800,height=600,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
 			$html .= 'return false;">';
 		}
 		if(isset($this->latest)) {
 			$html = '<a href="http://www.flickr.com/slideShow/index.gne?nsid='.urlencode($this->nsid).'&amp;user_id='.urlencode($this->nsid).'&amp;maxThumbs='.$this->latest;
-			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=500,height=500,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
+			$html .= '"  onclick="window.open(this.href, \'slideShowWin\', \'width=800,height=600,top=150,left=70,scrollbars=no, status=no, resizable=no\'); ';
 			$html .= 'return false;">';
 		}
 		$html .= $thing.'</a>';
